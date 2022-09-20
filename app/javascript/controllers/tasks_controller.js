@@ -10,12 +10,12 @@ export default class extends Controller {
         const csrfToken = document.querySelector("[name='csrf-token']").content
 
         fetch(`/tasks/${id}`, {
-            method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-Token': csrfToken
+                'X-CSRF-Token': csrfToken,
             },
-            body: JSON.stringify({ completed: e.target.checked }) // body data type must match "Content-Type" header
+            body: JSON.stringify({ completed: e.target.checked })
         })
           .then(response => response.json())
     }
