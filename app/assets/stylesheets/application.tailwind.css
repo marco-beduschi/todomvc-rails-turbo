@@ -6,4 +6,7 @@
     .btn {
         @apply rounded-lg py-1 px-5 inline-block font-medium cursor-pointer;
     }
+    .checkbox {
+        @apply form-checkbox text-green-500 w-7 h-7 rounded-full border-slate-300;
+    }
 }
