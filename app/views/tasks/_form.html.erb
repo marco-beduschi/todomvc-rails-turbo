@@ -1,6 +1,6 @@
-<%= form_with(model: task, class: "mb-7") do |form| %>
+<%= form_with(model: task) do |form| %>
   <div class="flex">
-    <%= form.text_field :description, placeholder: "Add new task", class: "inline-block shadow rounded-md border border-gray-200 outline-none px-3 py-2 grow overflow-hidden" %>
-    <%= form.submit "Save", class: "btn py-2 ml-2 bg-blue-600 text-white" %>
+    <%= form.text_field :description, placeholder: "What needs to be done?", class: "text-xl placeholder:italic placeholder:text-slate-400 placeholder:font-thin inline-block rounded-tl-md border-0 outline-none px-3 py-2 grow overflow-hidden" %>
+    <%= form.submit "Add", class: "btn rounded-none rounded-tr-md py-2 bg-white text-rose-300" %>
   </div>
 <% end %>
