@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
@@ -9,7 +11,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to tasks_url, notice: "Task was successfully created" }
+        format.html { redirect_to tasks_url, notice: 'Task was successfully created' }
       else
         format.html { redirect_to tasks_url, status: :unprocessable_entity }
       end
@@ -25,10 +27,10 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update(task_params)
-        format.json { render json: { message: "Success" }}
-        format.html { redirect_to tasks_url, notice: "Task was successfully updated" }
+        format.json { render json: { message: 'Success' } }
+        format.html { redirect_to tasks_url, notice: 'Task was successfully updated' }
       else
-        format.json { render json: { message: "error" }}
+        format.json { render json: { message: 'error' } }
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
@@ -37,11 +39,9 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
 
-    if @task.destroy
-      redirect_to tasks_url, notice: "Task was successfully deleted."
-    else
-      # TO-DO      
-    end
+    return unless @task.destroy
+
+    redirect_to tasks_url, notice: 'Task was successfully deleted.'
   end
 
   private
