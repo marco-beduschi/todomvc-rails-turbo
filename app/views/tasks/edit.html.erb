@@ -1,8 +1,10 @@
-<div>
-  <h1 class="font-bold text-2xl mb-3">Editing Task</h1>
+<%= turbo_frame_tag @task do %>
+    <%= form_with(model: @task, class: "flex flex-col m-2 gap-2") do |form| %>
+      <%= form.text_area :description, placeholder: "What needs to be done?", autofocus: true, class: "text-xl placeholder:italic placeholder:text-slate-400 placeholder:font-thin inline-block border-slate-300" %>
 
-  <div>
-    <%= render "form", task: @task %>
-    <%= link_to "Never Mind", tasks_path, class: "btn mb-3 bg-gray-100" %>
-  </div>
-</div>
+      <div class="flex justify-end gap-2">
+        <%= link_to "Cancel", tasks_path, class: "btn bg-white text-slate-800 bg-slate-100" %>
+        <%= form.submit "Save", class: "btn bg-white text-white bg-rose-500" %>
+      </div>
+    <% end %>
+<% end %>

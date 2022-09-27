@@ -41,7 +41,7 @@ class TasksController < ApplicationController
 
     return unless @task.destroy
 
-    redirect_to tasks_url, notice: 'Task was successfully deleted.'
+    redirect_to tasks_url
   end
 
   private

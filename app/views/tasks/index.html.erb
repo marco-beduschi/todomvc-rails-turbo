@@ -6,10 +6,15 @@
 <h1 class="text-8xl text-center text-rose-400 font-thin mb-4">todos</h1>
 <section class="bg-white rounded shadow-md">
   <div>
-    <%= render "form", task: @task %>
+    <%= form_with(model: @task) do |form| %>
+      <div class="flex gap-1">
+        <%= form.text_field :description, placeholder: "What needs to be done?", autofocus: true, class: "text-xl placeholder:italic placeholder:text-slate-400 placeholder:font-thin inline-block rounded-tl-md border-0 outline-none px-3 py-2 grow overflow-hidden" %>
+        <%= form.submit "Add", class: "btn rounded-none rounded-tr-md bg-white text-rose-500" %>
+      </div>
+    <% end %>
   </div>
 
-  <div id="tasks">
+  <div id="tasks" class="p-2">
     <h1 class="sr-only">Tasks</h1>
 
     <div data-controller="tasks">
