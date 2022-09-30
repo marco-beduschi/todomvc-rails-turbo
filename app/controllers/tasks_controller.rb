@@ -11,6 +11,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        format.turbo_stream { render :create }
         format.html { redirect_to tasks_url, notice: 'Task was successfully created' }
       else
         format.html { redirect_to tasks_url, status: :unprocessable_entity }

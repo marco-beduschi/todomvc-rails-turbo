@@ -1,19 +1,25 @@
 <h1 class="text-8xl text-center text-rose-400 font-thin mb-4">todos</h1>
 <section class="bg-white rounded shadow-md">
   <div>
-    <%= form_with(model: @task) do |form| %>
-      <div class="flex gap-1">
-        <%= form.text_field :description, placeholder: "What needs to be done?", autofocus: true, class: "text-xl placeholder:italic placeholder:text-slate-400 placeholder:font-thin inline-block rounded-tl-md border-0 outline-none px-3 py-2 grow overflow-hidden" %>
-        <%= form.submit "Add", class: "btn rounded-none rounded-tr-md bg-white text-rose-500" %>
-      </div>
-    <% end %>
+    <%= render "form", task: @task %>
   </div>
 
-  <div id="tasks" class="p-2">
+  <div class="p-2">
     <h1 class="sr-only">Tasks</h1>
 
-    <div data-controller="tasks">
+    <div data-controller="tasks" id="tasks">
       <%= render @tasks %>
     </div>
   </div>
 </section>
+<footer class="relative">
+  <span class="float-left">
+    <%= @tasks.count %> items left
+  </span>
+  <ul class="absolute inset-x-0 flex flex-row gap-2">
+    <li><a href="#">All</a></li>
+    <li><a href="#">Active</a></li>
+    <li><a href="#">Completed</a></li>
+  </ul>
+  <button class="float-right">Clear Completed</button>
+</footer>
