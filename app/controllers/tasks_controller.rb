@@ -29,7 +29,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update(task_params)
-        format.json { render json: { message: 'Success' } }
+        format.json { render json: { message: 'Success', tasks_to_be_completed_count: Task.completed(false).count } }
         format.html { redirect_to tasks_url, notice: 'Task was successfully updated' }
       else
         format.json { render json: { message: 'error' } }

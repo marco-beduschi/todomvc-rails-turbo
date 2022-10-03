@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    toggle(e) {
+    async toggle(e) {
         const id = e.target.dataset.id
         const csrfToken = document.querySelector("[name='csrf-token']").content
 
-        fetch(`/tasks/${id}`, {
+        const response = await fetch(`/tasks/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -13,6 +13,10 @@ export default class extends Controller {
             },
             body: JSON.stringify({ completed: e.target.checked })
         })
-          .then(response => response.json())
+
+        if (response.ok) {
+            const data = await response.json()
+            document.getElementById("tasks-to-be-completed").textContent = data['tasks_to_be_completed_count']
+        }
     }
 }
