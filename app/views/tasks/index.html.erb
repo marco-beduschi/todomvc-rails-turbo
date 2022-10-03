@@ -12,10 +12,11 @@
   </div>
 </section>
 <footer class="relative">
-  <span class="float-left">
-    <%= @tasks.count %> items left
-  </span>
-  <ul class="absolute inset-x-0 flex flex-row gap-2">
+  <p class="float-left">
+    <span class="float-left" id="tasks-to-be-completed"><%= @tasks_to_be_completed_count %></span>
+    &emsp;items left
+  </p>
+  <ul class="absolute inset-x-0 flex flex-row gap-2 justify-center">
     <li><a href="#">All</a></li>
     <li><a href="#">Active</a></li>
     <li><a href="#">Completed</a></li>

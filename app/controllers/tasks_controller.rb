@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
     @task = Task.new
+    @tasks_to_be_completed_count = @tasks.to_be_completed.count
   end
 
   def create
@@ -11,6 +12,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        format.turbo_stream
         format.html { redirect_to tasks_url, notice: 'Task was successfully created' }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,6 +42,8 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 
     @task.destroy
+
+    @tasks_to_be_completed_count = Task.to_be_completed.count
   end
 
   private
