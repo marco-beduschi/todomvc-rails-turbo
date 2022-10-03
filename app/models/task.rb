@@ -3,5 +3,5 @@
 class Task < ApplicationRecord
   validates :description, presence: true
 
-  scope :to_be_completed, -> { where(completed: false).or(where(completed: nil)) }
+  scope :completed, ->(completed = true) { where(completed:) }
 end
