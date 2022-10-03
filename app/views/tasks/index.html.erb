@@ -1,9 +1,8 @@
 <h1 class="text-8xl text-center text-rose-400 font-thin mb-4">todos</h1>
 <section class="bg-white rounded shadow-md">
-  <div>
+  <%= turbo_frame_tag "new-task" do %>
     <%= render "form", task: @task %>
-  </div>
-
+  <% end %>
   <div class="p-2">
     <h1 class="sr-only">Tasks</h1>
 

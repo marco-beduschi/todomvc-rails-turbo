@@ -11,10 +11,9 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.turbo_stream { render :create }
         format.html { redirect_to tasks_url, notice: 'Task was successfully created' }
       else
-        format.html { redirect_to tasks_url, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -40,9 +39,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
 
-    return unless @task.destroy
-
-    redirect_to tasks_url
+    @task.destroy
   end
 
   private

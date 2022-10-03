@@ -13,3 +13,15 @@
         @apply form-checkbox text-green-500 w-7 h-7 rounded-full border-slate-300;
     }
 }
+
+.field-with-errors {
+    @apply flex flex-col w-full;
+}
+
+.field-with-errors input {
+      @apply border-red-300;
+}
+
+.error {
+  @apply block text-red-700 text-sm;
+}
