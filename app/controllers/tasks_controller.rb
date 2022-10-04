@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     @tasks = params['completed'] ? Task.completed(params['completed']) : Task.all
     @task = Task.new
-    @tasks_to_be_completed_count = @tasks.completed(false).count
+    @tasks_to_be_completed_count = Task.completed(false).count
   end
 
   def create

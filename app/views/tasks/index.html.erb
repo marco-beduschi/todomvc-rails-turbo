@@ -11,20 +11,20 @@
     </div>
   </div>
 </section>
-<footer class="relative">
+<footer class="relative h-[80px] p-2 sm:h-[32px]">
   <p class="float-left">
     <span class="float-left" id="tasks-to-be-completed"><%= @tasks_to_be_completed_count %></span>
     &emsp;items left
   </p>
-  <ul class="absolute inset-x-0 flex flex-row gap-2 justify-center">
+  <ul data-controller="filters" class="absolute inset-x-0 bottom-0 flex flex-row gap-2 justify-center">
     <li>
-      <%= link_to("All", tasks_path) %>
+      <%= link_to("All", tasks_path, class: "filter-btn") %>
     </li>
     <li>
-      <%= link_to("Active", tasks_path(completed: false)) %>
+      <%= link_to("Active", tasks_path(completed: false), class: "filter-btn") %>
     </li>
     <li>
-      <%= link_to("Completed", tasks_path(completed: true)) %>
+      <%= link_to("Completed", tasks_path(completed: true), class: "filter-btn") %>
     </li>
   </ul>
   <button class="float-right">Clear Completed</button>
