@@ -12,9 +12,6 @@
     .filter-btn {
         @apply p-1 border border-transparent hover:border-rose-100;
     }
-    .filter-btn__active {
-        @apply border-5;
-    }
     .checkbox {
         @apply form-checkbox text-green-500 w-7 h-7 rounded-full border-slate-300;
     }

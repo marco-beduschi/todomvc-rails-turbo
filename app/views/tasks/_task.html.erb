@@ -1,9 +1,14 @@
 <%= turbo_frame_tag task do %>
   <div class="flex flex-row justify-between p-1 sm:p-2 gap-2">
-    <%= form_with(model: task, class:"text-lg flex gap-1 sm:gap-2 w-full") do |form| %>
+    <%= form_with(model: task,
+                  method: "PATCH",
+                  data: {
+                    controller: "task",
+                    action: "input->task#submit"
+                  },
+                  class:"text-lg flex gap-1 sm:gap-2 w-full") do |form| %>
       <%= form.check_box :completed, class: "checkbox" %>
-      <%= form.label :completed, task.description, class: "font-light grow pointer-events-none" %>
-      <%= form.text_area :description, readonly: true, class: "font-light grow hidden" %>
+      <%= form.label :completed, task.description, class: "font-light grow pointer-events-none #{task.completed? ? 'line-through opacity-40' : ''}" %>
     <% end %>
     <div class="shrink-0">
       <div class="flex items-center">

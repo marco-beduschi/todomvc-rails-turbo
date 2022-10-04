@@ -7,6 +7,8 @@ class TasksController < ApplicationController
     @tasks_to_be_completed_count = Task.completed(false).count
   end
 
+  def new; end
+
   def create
     @task = Task.new(task_params)
 
@@ -29,10 +31,9 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update(task_params)
-        format.json { render json: { message: 'Success', tasks_to_be_completed_count: Task.completed(false).count } }
+        format.turbo_stream { @tasks_to_be_completed_count = Task.completed(false).count }
         format.html { redirect_to tasks_url, notice: 'Task was successfully updated' }
       else
-        format.json { render json: { message: 'error' } }
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
