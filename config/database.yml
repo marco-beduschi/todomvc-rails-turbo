@@ -19,4 +19,3 @@ production:
   <<: *default
   database: todo-mvc-rails_production
   username: todo-mvc-rails
-  password: <%= ENV["PRODUCTION_DATABASE_PASSWORD"] %>
