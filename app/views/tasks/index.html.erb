@@ -3,12 +3,12 @@
   <%= turbo_frame_tag "new-task" do %>
     <%= render "form", task: @task %>
   <% end %>
-  <div class="p-2">
+  <div class="border-t-[1px]">
     <h1 class="sr-only">Tasks</h1>
 
-    <div id="tasks">
+    <ul id="tasks">
       <%= render @tasks %>
-    </div>
+    </ul>
   </div>
 </section>
 <footer class="relative h-[80px] p-2 sm:h-[32px]">

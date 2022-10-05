@@ -1,5 +1,5 @@
 <%= turbo_frame_tag task do %>
-  <div class="flex flex-row justify-between p-1 sm:p-2 gap-2">
+  <li class="flex flex-row justify-between px-1 py-2 gap-2 border-b-[1px] sm:px-2 sm:py-3">
     <%= form_with(model: task,
                   method: "PATCH",
                   data: {
@@ -33,5 +33,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </li>
 <% end %>
