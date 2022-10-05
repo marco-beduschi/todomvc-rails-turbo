@@ -1,3 +1,5 @@
 <%= turbo_stream.update @task, @task %>
 
-<%= turbo_stream.update "tasks-to-be-completed", @tasks_to_be_completed_count %>
+<%= turbo_stream.update "task-stats" do %>
+  <%= render "tasks/stats", tasks_to_be_completed_count: @tasks_to_be_completed_count %>
+<% end %>
